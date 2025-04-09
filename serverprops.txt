@@ -1,0 +1,3 @@
+DESKTOP-0L5VRFL\SQLEXPRESS
+
+dotnet ef dbcontext scaffold "Data Source=DESKTOP-0L5VRFL\SQLEXPRESS\MSSQLLocalDB;Initial Catalog=Chinook" Microsoft.EntityFrameworkCore.SqlServer

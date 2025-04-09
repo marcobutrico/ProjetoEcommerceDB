@@ -1,0 +1,109 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\fic\\Documents\\MarcoAB\\ecommerce\\API-Ecommerce\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{17A02728-9B7F-437D-837C-66FBE40A46AF}|API-Ecommerce\\API-Ecommerce.csproj|c:\\users\\fic\\documents\\marcoab\\ecommerce\\api-ecommerce\\api-ecommerce\\interfaces\\iprodutorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{17A02728-9B7F-437D-837C-66FBE40A46AF}|API-Ecommerce\\API-Ecommerce.csproj|solutionrelative:api-ecommerce\\interfaces\\iprodutorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{17A02728-9B7F-437D-837C-66FBE40A46AF}|API-Ecommerce\\API-Ecommerce.csproj|c:\\users\\fic\\documents\\marcoab\\ecommerce\\api-ecommerce\\api-ecommerce\\api-ecommerce.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{17A02728-9B7F-437D-837C-66FBE40A46AF}|API-Ecommerce\\API-Ecommerce.csproj|solutionrelative:api-ecommerce\\api-ecommerce.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{17A02728-9B7F-437D-837C-66FBE40A46AF}|API-Ecommerce\\API-Ecommerce.csproj|c:\\users\\fic\\documents\\marcoab\\ecommerce\\api-ecommerce\\api-ecommerce\\models\\cliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{17A02728-9B7F-437D-837C-66FBE40A46AF}|API-Ecommerce\\API-Ecommerce.csproj|solutionrelative:api-ecommerce\\models\\cliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{17A02728-9B7F-437D-837C-66FBE40A46AF}|API-Ecommerce\\API-Ecommerce.csproj|c:\\users\\fic\\documents\\marcoab\\ecommerce\\api-ecommerce\\api-ecommerce\\context\\ecommercecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{17A02728-9B7F-437D-837C-66FBE40A46AF}|API-Ecommerce\\API-Ecommerce.csproj|solutionrelative:api-ecommerce\\context\\ecommercecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{17A02728-9B7F-437D-837C-66FBE40A46AF}|API-Ecommerce\\API-Ecommerce.csproj|c:\\users\\fic\\documents\\marcoab\\ecommerce\\api-ecommerce\\api-ecommerce\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{17A02728-9B7F-437D-837C-66FBE40A46AF}|API-Ecommerce\\API-Ecommerce.csproj|solutionrelative:api-ecommerce\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "IProdutoRepository.cs",
+              "DocumentMoniker": "C:\\Users\\fic\\Documents\\MarcoAB\\ecommerce\\API-Ecommerce\\API-Ecommerce\\Interfaces\\IProdutoRepository.cs",
+              "RelativeDocumentMoniker": "API-Ecommerce\\Interfaces\\IProdutoRepository.cs",
+              "ToolTip": "C:\\Users\\fic\\Documents\\MarcoAB\\ecommerce\\API-Ecommerce\\API-Ecommerce\\Interfaces\\IProdutoRepository.cs",
+              "RelativeToolTip": "API-Ecommerce\\Interfaces\\IProdutoRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-09T00:50:26.333Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Cliente.cs",
+              "DocumentMoniker": "C:\\Users\\fic\\Documents\\MarcoAB\\ecommerce\\API-Ecommerce\\API-Ecommerce\\Models\\Cliente.cs",
+              "RelativeDocumentMoniker": "API-Ecommerce\\Models\\Cliente.cs",
+              "ToolTip": "C:\\Users\\fic\\Documents\\MarcoAB\\ecommerce\\API-Ecommerce\\API-Ecommerce\\Models\\Cliente.cs",
+              "RelativeToolTip": "API-Ecommerce\\Models\\Cliente.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-09T00:36:48.454Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "EcommerceContext.cs",
+              "DocumentMoniker": "C:\\Users\\fic\\Documents\\MarcoAB\\ecommerce\\API-Ecommerce\\API-Ecommerce\\Context\\EcommerceContext.cs",
+              "RelativeDocumentMoniker": "API-Ecommerce\\Context\\EcommerceContext.cs",
+              "ToolTip": "C:\\Users\\fic\\Documents\\MarcoAB\\ecommerce\\API-Ecommerce\\API-Ecommerce\\Context\\EcommerceContext.cs",
+              "RelativeToolTip": "API-Ecommerce\\Context\\EcommerceContext.cs",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAuwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-09T00:27:11.291Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "API-Ecommerce.csproj",
+              "DocumentMoniker": "C:\\Users\\fic\\Documents\\MarcoAB\\ecommerce\\API-Ecommerce\\API-Ecommerce\\API-Ecommerce.csproj",
+              "RelativeDocumentMoniker": "API-Ecommerce\\API-Ecommerce.csproj",
+              "ToolTip": "C:\\Users\\fic\\Documents\\MarcoAB\\ecommerce\\API-Ecommerce\\API-Ecommerce\\API-Ecommerce.csproj",
+              "RelativeToolTip": "API-Ecommerce\\API-Ecommerce.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-04-08T22:59:45.817Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\fic\\Documents\\MarcoAB\\ecommerce\\API-Ecommerce\\API-Ecommerce\\Program.cs",
+              "RelativeDocumentMoniker": "API-Ecommerce\\Program.cs",
+              "ToolTip": "C:\\Users\\fic\\Documents\\MarcoAB\\ecommerce\\API-Ecommerce\\API-Ecommerce\\Program.cs",
+              "RelativeToolTip": "API-Ecommerce\\Program.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-08T22:26:02.32Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
