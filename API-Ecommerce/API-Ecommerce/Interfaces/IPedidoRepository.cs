@@ -2,32 +2,32 @@
 
 namespace API_Ecommerce.Interfaces
 {
-    public interface IClienteRepository
+    public interface IPedidoRepository
     {
         //Fachada - Contrato 
         //CRUD
-        //Listar clientes - Read all
-        List<Cliente> ListarTodos();
+        //Listar pedidos - Read all
+        List<Pedido> ListarTodos();
 
         //CRUD
-        //Listar clientes por Id - Read {id}
+        //Listar pedidos por Id - Read {id}
         //Recebe um Id e retorna o cliente correspondente
         Cliente BuscarPorId(int id);
 
 
         //CRUD
         //C - Create (cadastro)
-        //Cliente       cliente (argumento)
-        void Cadastrar(Produto produto);
+        //Pedido       pedido (argumento)
+        void Cadastrar(Pedido pedido);
 
         //CRUD
         //U - Update por Id - Update {id} e o que vai ser atualizado
-        //Recebe um Id e atualizada o cliente correspondente
-        void Atualizar(int id, Cliente cliente);
+        //Recebe um Id e atualizada o pedido correspondente
+        void Atualizar(int id, Pedido pedido);
 
         //CRUD
         //D - Deletar por Id - Delete {id} 
-        //Recebe um Id e deleta o cliente correspondente
+        //Recebe um Id e deleta o pedido correspondente
         void Deletar(int id);
     }
 }

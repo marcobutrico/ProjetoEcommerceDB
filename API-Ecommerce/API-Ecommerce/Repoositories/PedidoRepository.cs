@@ -3,12 +3,8 @@ using API_Ecommerce.Interfaces;
 using API_Ecommerce.Models;
 
 namespace API_Ecommerce.Repoositories
-
-    //1. Herdar da Interface
-    //2. IMplementar a Interface
-    //3. Injetar o Context
 {
-    public class ClienteRepository : IClienteRepository
+    public class PedidoRepository : IPedidoRepository
     {
         // Metodos que acessam o banco de dados
 
@@ -18,16 +14,14 @@ namespace API_Ecommerce.Repoositories
         //salva o conteudo de Context
         private readonly EcommerceContext _context;
 
-      
 
-        //ctor Constructor
-        //Injetar dependencia
-        //public ClienteRepository(EcommerceContext context)
+
+        public PedidoRepository(EcommerceContext context)
         {
             _context = context;
         }
 
-        public void Atualizar(int id, Cliente cliente)
+        public void Atualizar(int id, Pedido pedido)
         {
             throw new NotImplementedException();
         }
@@ -37,15 +31,10 @@ namespace API_Ecommerce.Repoositories
             throw new NotImplementedException();
         }
 
-        public void Cadastrar(Cliente cliente)
+        public void Cadastrar(Pedido pedido)
         {
-            _context.Clientes.Add(cliente);
+            _context.Pedidos.Add(pedido);
             //throw new NotImplementedException();
-        }
-
-        public void Cadastrar(Produto produto)
-        {
-            throw new NotImplementedException();
         }
 
         public void Deletar(int id)
@@ -53,10 +42,12 @@ namespace API_Ecommerce.Repoositories
             throw new NotImplementedException();
         }
 
-        public List<Cliente> ListarTodos()
+        public List<Pedido> ListarTodos()
         {
-            return _context.Clientes.ToList();
+            return _context.Pedidos.ToList();
             //throw new NotImplementedException();
         }
+
+
     }
 }

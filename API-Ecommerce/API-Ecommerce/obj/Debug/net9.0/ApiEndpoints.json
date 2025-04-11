@@ -1,5 +1,45 @@
 [
   {
+    "ContainingType": "API_Ecommerce.Controllers.ClienteController",
+    "Method": "ListaPedido",
+    "RelativePath": "api/Cliente",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_Ecommerce.Controllers.ItemPedidoController",
+    "Method": "ListaItemPedido",
+    "RelativePath": "api/ItemPedido",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_Ecommerce.Controllers.PagamentoController",
+    "Method": "ListaPagamento",
+    "RelativePath": "api/Pagamento",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_Ecommerce.Controllers.PedidoController",
+    "Method": "ListaPedido",
+    "RelativePath": "api/Pedido",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "API_Ecommerce.Controllers.ProdutoController",
     "Method": "ListaProduto",
     "RelativePath": "api/Produto",
