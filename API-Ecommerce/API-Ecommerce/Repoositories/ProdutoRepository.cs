@@ -39,6 +39,11 @@ namespace API_Ecommerce.Repoositories
         public void Cadastrar(Produto produto)
         {
             _context.Produtos.Add(produto);
+        }
+
+        public void CadastrarProduto(Produto produto)
+        {
+            _context.Produtos.Add(produto);
             //throw new NotImplementedException();
         }
 

@@ -20,9 +20,9 @@ namespace API_Ecommerce.Controllers
             _pagamentoRepository = new PagamentoRepository(_context);
         }
 
-        // GET
+        // 1 - Definir o verbo: GET
         [HttpGet]
-        public IActionResult ListaPagamento()
+        public IActionResult ListarTodos()
         {
             return Ok(_pagamentoRepository.ListarTodos());
         }

@@ -13,16 +13,16 @@ namespace API_Ecommerce.Controllers
     {
         private readonly EcommerceContext _context;
 
-        private IClienteRepository _pedidoRepository;
+        private IPedidoRepository _pedidoRepository;
         public PedidoController(EcommerceContext context)
         {
             _context = context;
-            _pedidoRepository = new ClienteRepository(_context);
+            _pedidoRepository = new PedidoRepository(_context);
         }
 
         // GET
         [HttpGet]
-        public IActionResult ListaPedido()
+        public IActionResult ListarTodos()
         {
             return Ok(_pedidoRepository.ListarTodos());
         }

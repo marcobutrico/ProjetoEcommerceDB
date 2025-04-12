@@ -22,7 +22,7 @@ namespace API_Ecommerce.Controllers
 
         // GET
         [HttpGet]
-        public IActionResult ListaItemPedido()
+        public IActionResult ListarTodos()
         {
             return Ok(_itempedidoRepository.ListarTodos());
         }
