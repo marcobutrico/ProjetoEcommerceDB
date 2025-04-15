@@ -18,7 +18,7 @@ namespace API_Ecommerce.Interfaces
         //CRUD
         //C - Create (cadastro)
         //Cliente       cliente (argumento)
-        void Cadastrar(Produto produto);
+        void Cadastrar(Cliente cliente);
 
         //CRUD
         //U - Update por Id - Update {id} e o que vai ser atualizado

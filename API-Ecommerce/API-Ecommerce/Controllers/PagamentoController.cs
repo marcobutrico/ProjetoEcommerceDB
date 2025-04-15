@@ -1,5 +1,6 @@
 ﻿using API_Ecommerce.Context;
 using API_Ecommerce.Interfaces;
+using API_Ecommerce.Models;
 using API_Ecommerce.Repoositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -27,5 +28,18 @@ namespace API_Ecommerce.Controllers
             return Ok(_pagamentoRepository.ListarTodos());
         }
 
+
+        // Cadastrar Produtos
+        [HttpPost]
+        public IActionResult CadastrarPagamento(Pagamento pagamento)
+        {
+            //1 - Coloco o Cliente no Banco de Dados
+            _pagamentoRepository.Cadastrar(pagamento);
+
+
+            //Retorna o resultado
+            //201 - Created
+            return Created();
+        }
     }
 }

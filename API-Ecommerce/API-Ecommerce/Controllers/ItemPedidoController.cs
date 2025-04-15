@@ -1,5 +1,6 @@
 ﻿using API_Ecommerce.Context;
 using API_Ecommerce.Interfaces;
+using API_Ecommerce.Models;
 using API_Ecommerce.Repoositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -27,5 +28,17 @@ namespace API_Ecommerce.Controllers
             return Ok(_itempedidoRepository.ListarTodos());
         }
 
+        // Cadastrar Pedidos
+        [HttpPost]
+        public IActionResult CadastrarItemPagamento(ItemPedido itempedido)
+        {
+            //1 - Coloco o Cliente no Banco de Dados
+            _itempedidoRepository.Cadastrar(itempedido);
+
+
+            //Retorna o resultado
+            //201 - Created
+            return Created();
+        }
     }
 }

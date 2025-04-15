@@ -30,10 +30,11 @@ namespace API_Ecommerce.Repoositories
             throw new NotImplementedException();
         }
 
-        public void Cadastrar(Produto produto)
+        public void Cadastrar(Cliente cliente)
         {
-            throw new NotImplementedException();
+            _context.Clientes.Add(cliente);
         }
+
 
         public void Deletar(int id)
         {

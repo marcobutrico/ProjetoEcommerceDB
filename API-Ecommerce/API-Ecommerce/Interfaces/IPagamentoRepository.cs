@@ -1,4 +1,5 @@
 ﻿using API_Ecommerce.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace API_Ecommerce.Interfaces
 {
@@ -19,6 +20,7 @@ namespace API_Ecommerce.Interfaces
         //C - Create (cadastro)
         //Pagamento       pagamento (argumento)
         void Cadastrar(Pagamento pagamento);
+
 
         //CRUD
         //U - Update por Id - Update {id} e o que vai ser atualizado

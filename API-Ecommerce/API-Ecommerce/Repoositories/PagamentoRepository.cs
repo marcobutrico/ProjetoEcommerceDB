@@ -34,7 +34,7 @@ namespace API_Ecommerce.Repoositories
         public void Cadastrar(Pagamento pagamento)
         {
             _context.Pagamentos.Add(pagamento);
-            //throw new NotImplementedException();
+            _context.SaveChanges();
         }
 
 

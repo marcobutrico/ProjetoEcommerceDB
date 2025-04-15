@@ -12,13 +12,16 @@ namespace API_Ecommerce.Controllers
     [ApiController]
     public class ProdutoController : ControllerBase
     {
-        private readonly EcommerceContext _context;
-
+  
         private IProdutoRepository _produtoRepository;
-        public ProdutoController(EcommerceContext context)
+        
+        //injecao de Dependência
+        //Ao invés de EU instanciar a classe
+        //Eu aviso que DEPENDO dela
+        //E a responsbilidade de criar vem pra classe que chama (C#)
+        public ProdutoController(ProdutoRepository produtoRepository)
         {
-            _context = context;
-            _produtoRepository = new ProdutoRepository(_context);
+            _produtoRepository = produtoRepository;
         }
 
         // GET
@@ -35,9 +38,6 @@ namespace API_Ecommerce.Controllers
         {
             //1 - Coloco o Produto no Banco de Dados
             _produtoRepository.Cadastrar(produto);
-
-            //2. Salvar a alteracao
-            _context.SaveChanges();
 
             //Retorna o resultado
             //201 - Created

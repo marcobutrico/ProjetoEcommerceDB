@@ -19,7 +19,7 @@ namespace API_Ecommerce.Repoositories
         //ctor - constructor
         //Metodo construtor
         // Quando criar um objeto, o que eu preciso ter
-        
+
 
         public ProdutoRepository(EcommerceContext context)
         {
@@ -39,6 +39,9 @@ namespace API_Ecommerce.Repoositories
         public void Cadastrar(Produto produto)
         {
             _context.Produtos.Add(produto);
+            //2. Salvar a alteracao
+            _context.SaveChanges();
+
         }
 
         public void CadastrarProduto(Produto produto)

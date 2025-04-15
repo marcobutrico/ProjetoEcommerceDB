@@ -30,7 +30,7 @@ namespace API_Ecommerce.Repoositories
         public void Cadastrar(ItemPedido itempedido)
         {
             _context.ItemPedidos.Add(itempedido);
-            //throw new NotImplementedException();
+            _context.SaveChanges();
         }
 
         public void Deletar(int id)
