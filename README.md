@@ -6,6 +6,15 @@
      - Microsoft.EntityFrameworkCore.Design
      - Microsoft.EntityFrameworkCore.SqlServer
      - Microsoft.EntityFrameworkCore.Tools
+  
+2.1 Realizar o scaffold (database => code):
+
+     dotnet tool install --global dotnet-ef
+
+2.2 Instalar o Entity Framework
+
+     dotnet ef dbcontext scaffold "Data Source=NOTE-VINICIO\SQLEXPRESS;Initial Catalog=ECommerce;User Id=sa;Password=Senai@134;TrustServerCertificate=true;" Microsoft.EntityFrameworkCore.SqlServer --context-dir Context --output-dir Models
+
 3. Criar a estrutura da diretorios dentro do projeto:
      -- Controllers
      -- Interfaces
