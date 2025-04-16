@@ -12,9 +12,9 @@ namespace API_Ecommerce.Controllers
     [ApiController]
     public class ProdutoController : ControllerBase
     {
-  
+
         private IProdutoRepository _produtoRepository;
-        
+
         //injecao de Dependência
         //Ao invés de EU instanciar a classe
         //Eu aviso que DEPENDO dela
@@ -43,5 +43,61 @@ namespace API_Ecommerce.Controllers
             //201 - Created
             return Created();
         }
+
+        // Buscar Produto por ID
+        [HttpGet("{id}")]
+        public IActionResult ListarPorId(int id)
+        {
+            Produto produto = _produtoRepository.BuscarPorId(id);
+
+            if (produto == null)
+            {
+                // 404 - Não Encontrado
+                return NotFound();
+            }
+
+            return Ok(produto);
+        }
+
+        // Deleta Produto por ID
+        [HttpDelete("{id}")]
+        public IActionResult Deletar(int id)
+        {
+            try
+            {
+                _produtoRepository.Deletar(id);
+
+                return NoContent();
+            }
+            // Caso dê erro
+            catch (Exception ex)
+            {
+
+                return NotFound("Produto não encontrado!");
+            }
+        }
+
+
+
+        // Edita Produto por ID
+        [HttpPut("{id}")]
+        public IActionResult Editar(int id, Produto prod)
+        {
+            try
+            {
+                _produtoRepository.Atualizar(id, prod);
+                return Ok(prod);
+
+            }
+            // Caso dê erro
+            catch (Exception ex)
+            {
+
+                return NotFound(ex);
+            }
+        }
+
+
+
     }
 }
