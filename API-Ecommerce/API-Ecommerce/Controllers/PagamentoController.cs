@@ -29,7 +29,7 @@ namespace API_Ecommerce.Controllers
         }
 
 
-        // Cadastrar Produtos
+        // Cadastrar Pagamento
         [HttpPost]
         public IActionResult CadastrarPagamento(Pagamento pagamento)
         {
@@ -41,5 +41,62 @@ namespace API_Ecommerce.Controllers
             //201 - Created
             return Created();
         }
+
+        // Buscar Produto por ID
+        [HttpGet("{id}")]
+        public IActionResult ListarPorId(int id)
+        {
+            Pagamento pagamento = _pagamentoRepository.BuscarPorId(id);
+
+            if (pagamento == null)
+            {
+                // 404 - Não Encontrado
+                return NotFound();
+            }
+
+            return Ok(pagamento);
+        }
+
+
+        // Deleta Produto por ID
+        [HttpDelete("{id}")]
+        public IActionResult Deletar(int id)
+        {
+            try
+            {
+                _pagamentoRepository.Deletar(id);
+
+                return NoContent();
+            }
+            // Caso dê erro
+            catch (Exception ex)
+            {
+
+                return NotFound("Pagamento não encontrado!");
+            }
+        }
+
+
+
+        // Edita Produto por ID
+        [HttpPut("{id}")]
+        public IActionResult Editar(int id, Pagamento pagto)
+        {
+            try
+            {
+                _pagamentoRepository.Atualizar(id, pagto);
+                return Ok(pagto);
+
+            }
+            // Caso dê erro
+            catch (Exception ex)
+            {
+
+                return NotFound(ex);
+            }
+        }
+
+
+
     }
 }

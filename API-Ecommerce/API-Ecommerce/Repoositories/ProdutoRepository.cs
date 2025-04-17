@@ -48,24 +48,10 @@ namespace API_Ecommerce.Repoositories
 
         public Produto BuscarPorId(int id)
         {
-            // ToList() - Pegar vários
-            // FirstOrDefault - Traz o primeiro que encontrar, ou null
 
-            // Expressão lambda - função sem corpo
-            // _context.Produtos - Acesse a tabela Produtos do Contexto
-            // p => p.idProduto == id
-            // Para cada Produto P, me retorne aquele que tem o IdProduto igual ao ID que eu quero
-            return _context.Produtos.FirstOrDefault(p => p.IdProduto == id);
+            return _context.Produtos.FirstOrDefault(e => e.IdProduto == id);
         }
-
-        public void Cadastrar(Cliente cliente)
-        {
-            _context.Clientes.Add(cliente);
-            // 2 - Salvo a Alteração
-            _context.SaveChanges();
-        }
-
-
+            
 
         public void Cadastrar(Produto produto)
         {
@@ -104,7 +90,6 @@ namespace API_Ecommerce.Repoositories
         public List<Produto> ListarTodos()
         {
             return _context.Produtos.ToList();
-            //throw new NotImplementedException();
         }
     }
 }

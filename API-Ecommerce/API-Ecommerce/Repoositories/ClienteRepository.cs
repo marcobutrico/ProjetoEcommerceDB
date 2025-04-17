@@ -27,24 +27,39 @@ namespace API_Ecommerce.Repoositories
 
         public Cliente BuscarPorId(int id)
         {
-            throw new NotImplementedException();
+            return _context.Clientes.FirstOrDefault(c => c.IdCliente == id);
         }
 
         public void Cadastrar(Cliente cliente)
         {
             _context.Clientes.Add(cliente);
+            _context.SaveChanges();
         }
 
 
         public void Deletar(int id)
         {
-            throw new NotImplementedException();
+            //1. Encontrar o produto que quero excluir
+            //Find. procura pela chave primaria
+            Cliente clienteEncontrado = _context.Clientes.Find(id);
+
+
+            //Caso nao encontrado, lanço um erro
+            if (clienteEncontrado == null)
+            {
+                throw new Exception();
+            }
+
+            _context.Clientes.Remove(clienteEncontrado);
+
+            //Salvo as alteracoes
+            _context.SaveChanges();
+
         }
 
         public List<Cliente> ListarTodos()
         {
             return _context.Clientes.ToList();
-            //throw new NotImplementedException();
         }
     }
 }

@@ -16,7 +16,7 @@ builder.Services.AddSwaggerGen();
 //AddSingleton
 
 builder.Services.AddScoped<EcommerceContext, EcommerceContext>();
-builder.Services.AddTransient<IProdutoRepository, ProdutoRepository>();
+builder.Services.AddScoped<ProdutoRepository>();
 builder.Services.AddTransient<IClienteRepository, ClienteRepository>();
 builder.Services.AddTransient<IPagamentoRepository, PagamentoRepository>();
 

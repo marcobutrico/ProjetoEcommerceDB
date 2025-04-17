@@ -19,7 +19,7 @@ namespace API_Ecommerce.Controllers
         //Ao invés de EU instanciar a classe
         //Eu aviso que DEPENDO dela
         //E a responsbilidade de criar vem pra classe que chama (C#)
-        public ProdutoController(ProdutoRepository produtoRepository)
+        public ProdutoController(IProdutoRepository produtoRepository)
         {
             _produtoRepository = produtoRepository;
         }
@@ -58,6 +58,7 @@ namespace API_Ecommerce.Controllers
 
             return Ok(produto);
         }
+
 
         // Deleta Produto por ID
         [HttpDelete("{id}")]
