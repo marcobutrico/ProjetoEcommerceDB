@@ -1,3 +1,16 @@
 DESKTOP-0L5VRFL\SQLEXPRESS
 
 dotnet ef dbcontext scaffold "Data Source=DESKTOP-0L5VRFL\SQLEXPRESS\MSSQLLocalDB;Initial Catalog=Chinook" Microsoft.EntityFrameworkCore.SqlServer
+
+
+dotnet ef dbcontext scaffold "Data Source=DESKTOP-0L5VRFL\SQLEXPRESS;Initial Catalog=ECommerce;User Id=sa;Password=Senai@134;TrustServerCertificate=true;" Microsoft.EntityFrameworkCore.SqlServer --context-dir Context --output-dir Models --force
+
+
+    {
+        "idPagamento": 3,
+        "idPedido": 7,
+        "formaPagamento": "PIX",
+        "statusPagamento": "Cancelado",
+        "dataPagamento": "2025-07-04T14:00:00",
+        "idPedidoNavigation": null
+    }

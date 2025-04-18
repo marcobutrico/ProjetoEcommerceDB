@@ -14,7 +14,7 @@ namespace API_Ecommerce.Repoositories
         //salva o conteudo de Context
         private readonly EcommerceContext _context;
 
-      
+
 
         public PagamentoRepository(EcommerceContext context)
         {
@@ -23,24 +23,52 @@ namespace API_Ecommerce.Repoositories
 
         public void Atualizar(int id, Pagamento pagamento)
         {
-            throw new NotImplementedException();
+            //Encontre o pagamento que desejo
+            Pagamento pagamentoEncontrado = _context.Pagamentos.Find(id);
+            //Caso nao encontrado, lanço um erro
+            if (pagamentoEncontrado == null)
+            {
+                throw new Exception();
+            }
+
+            pagamentoEncontrado.FormaPagamento = pagamento.FormaPagamento;
+            pagamentoEncontrado.StatusPagamento = pagamento.StatusPagamento;
+            pagamentoEncontrado.DataPagamento = pagamento.DataPagamento;
+            pagamentoEncontrado.IdPedido = pagamento.IdPedido;
+
+            _context.SaveChanges();
         }
 
-         public Pagamento BuscarPorId(int id)
+        public Pagamento BuscarPorId(int id)
         {
-            throw new NotImplementedException();
+            return _context.Pagamentos.FirstOrDefault(c => c.IdPagamento == id);
         }
 
         public void Cadastrar(Pagamento pagamento)
         {
             _context.Pagamentos.Add(pagamento);
-            _context.SaveChanges();
+            //throw new NotImplementedException();
         }
 
 
         public void Deletar(int id)
         {
-            throw new NotImplementedException();
+            //1. Encontrar o pagamento que quero excluir
+            //Find. procura pela chave primaria
+            Pagamento pagamentoEncontrado = _context.Pagamentos.Find(id);
+
+
+            //Caso nao encontrado, lanço um erro
+            if (pagamentoEncontrado == null)
+            {
+                throw new Exception();
+            }
+
+            _context.Pagamentos.Remove(pagamentoEncontrado);
+
+            //Salvo as alteracoes
+            _context.SaveChanges();
+
         }
 
         public List<Pagamento> ListarTodos()
@@ -49,6 +77,6 @@ namespace API_Ecommerce.Repoositories
             //throw new NotImplementedException();
         }
 
- 
+
     }
 }

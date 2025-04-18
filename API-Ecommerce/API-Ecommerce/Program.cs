@@ -15,8 +15,8 @@ builder.Services.AddSwaggerGen();
 //AddScoped - O C# cria uma instancia nova, toda vez que criar um controller
 //AddSingleton
 
-builder.Services.AddScoped<EcommerceContext, EcommerceContext>();
-builder.Services.AddScoped<ProdutoRepository>();
+builder.Services.AddDbContext<EcommerceContext, EcommerceContext>();
+builder.Services.AddScoped<IProdutoRepository, ProdutoRepository>();
 builder.Services.AddTransient<IClienteRepository, ClienteRepository>();
 builder.Services.AddTransient<IPagamentoRepository, PagamentoRepository>();
 

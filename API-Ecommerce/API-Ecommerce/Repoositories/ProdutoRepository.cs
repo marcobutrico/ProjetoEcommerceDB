@@ -36,6 +36,7 @@ namespace API_Ecommerce.Repoositories
                 throw new Exception();
             }
             produtoEncontrado.NomeProduto = produto.NomeProduto;
+            produtoEncontrado.Descricao = produto.Descricao;
             produtoEncontrado.Preco = produto.Preco;
             produtoEncontrado.Estoque = produto.Estoque;
             produtoEncontrado.Categoria = produto.Categoria;

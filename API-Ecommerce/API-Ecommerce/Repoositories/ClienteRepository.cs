@@ -22,7 +22,23 @@ namespace API_Ecommerce.Repoositories
 
         public void Atualizar(int id, Cliente cliente)
         {
-            throw new NotImplementedException();
+            //Encontre o produto que desejo
+            Cliente clienteEncontrado = _context.Clientes.Find(id);
+            //Caso nao encontrado, lanço um erro
+            if (clienteEncontrado == null)
+            {
+                throw new Exception();
+            }
+            clienteEncontrado.NomeCompleto = cliente.NomeCompleto;
+            clienteEncontrado.Email = cliente.Email;
+            clienteEncontrado.Telefone = cliente.Telefone;
+            clienteEncontrado.Endereco = cliente.Endereco;
+            clienteEncontrado.Senha = cliente.Senha;
+            clienteEncontrado.DataCadastro = cliente.DataCadastro;
+
+            _context.SaveChanges();
+
+
         }
 
         public Cliente BuscarPorId(int id)

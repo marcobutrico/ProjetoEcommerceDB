@@ -212,6 +212,90 @@
         }
       }
     },
+    "/api/Pagamento/{id}": {
+      "get": {
+        "tags": [
+          "Pagamento"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Pagamento"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Pagamento"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Pagamento"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Pagamento"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Pagamento"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Pedido": {
       "get": {
         "tags": [
@@ -404,10 +488,13 @@
             "type": "string",
             "nullable": true
           },
+          "senha": {
+            "type": "string",
+            "nullable": true
+          },
           "dataCadastro": {
             "type": "string",
-            "format": "date",
-            "nullable": true
+            "format": "date"
           },
           "pedidos": {
             "type": "array",
@@ -426,20 +513,17 @@
             "type": "integer",
             "format": "int32"
           },
-          "quantidade": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
           "idPedido": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           },
           "idProduto": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
+          },
+          "quantidade": {
+            "type": "integer",
+            "format": "int32"
           },
           "idPedidoNavigation": {
             "$ref": "#/components/schemas/Pedido"
@@ -457,6 +541,10 @@
             "type": "integer",
             "format": "int32"
           },
+          "idPedido": {
+            "type": "integer",
+            "format": "int32"
+          },
           "formaPagamento": {
             "type": "string",
             "nullable": true
@@ -467,13 +555,7 @@
           },
           "dataPagamento": {
             "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "idPedido": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "date-time"
           },
           "idPedidoNavigation": {
             "$ref": "#/components/schemas/Pedido"
@@ -490,8 +572,7 @@
           },
           "dataPedido": {
             "type": "string",
-            "format": "date",
-            "nullable": true
+            "format": "date"
           },
           "statusPedido": {
             "type": "string",
@@ -538,15 +619,17 @@
             "type": "string",
             "nullable": true
           },
+          "descricao": {
+            "type": "string",
+            "nullable": true
+          },
           "preco": {
             "type": "number",
-            "format": "double",
-            "nullable": true
+            "format": "double"
           },
           "estoque": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           },
           "categoria": {
             "type": "string",

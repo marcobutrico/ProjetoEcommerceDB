@@ -131,6 +131,59 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "API_Ecommerce.Controllers.PagamentoController",
+    "Method": "ListarPorId",
+    "RelativePath": "api/Pagamento/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_Ecommerce.Controllers.PagamentoController",
+    "Method": "Deletar",
+    "RelativePath": "api/Pagamento/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_Ecommerce.Controllers.PagamentoController",
+    "Method": "Editar",
+    "RelativePath": "api/Pagamento/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "pagto",
+        "Type": "API_Ecommerce.Models.Pagamento",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "API_Ecommerce.Controllers.PedidoController",
     "Method": "ListarTodos",
     "RelativePath": "api/Pedido",
@@ -184,7 +237,7 @@
   },
   {
     "ContainingType": "API_Ecommerce.Controllers.ProdutoController",
-    "Method": "ListarPorId",
+    "Method": "BuscarPorId",
     "RelativePath": "api/Produto/{id}",
     "HttpMethod": "GET",
     "IsController": true,

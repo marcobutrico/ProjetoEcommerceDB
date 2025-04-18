@@ -46,7 +46,7 @@ namespace API_Ecommerce.Controllers
 
         // Buscar Produto por ID
         [HttpGet("{id}")]
-        public IActionResult ListarPorId(int id)
+        public IActionResult BuscarPorId(int id)
         {
             Produto produto = _produtoRepository.BuscarPorId(id);
 

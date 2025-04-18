@@ -31,46 +31,70 @@ CREATE DATABASE Ecommerce
 CREATE TABLE Cliente (
 	-- PRIMARY KEY - coluna que identifica o cliente
 	IdCliente INT PRIMARY KEY IDENTITY, 
-	NomeCompleto VARCHAR(150),
-	Email VARCHAR(100), 
+	NomeCompleto VARCHAR(150) NOT NULL,
+	Email VARCHAR(100) NOT NULL UNIQUE, 
 	Telefone VARCHAR(20),
 	Endereco VARCHAR(200),
-	DataCadastro DATE,
+	Senha VARCHAR(255) NOT NULL,
+	DataCadastro DATE NOT NULL,
 )
+
+
+-- Checa se tem algum campo vazio
+--SELECT * FROM Cliente
+-- WHERE NomeCompleto IS NULL
+-- OR Email IS NULL
+-- OR Telefone IS NULL
+-- OR Endereco IS NULL
+--  OR DataCadastro IS NULL;
+
 
 CREATE TABLE Pedido (
 	IdPedido INT PRIMARY KEY IDENTITY, 
-	DataPedido DATE,
-	StatusPedido VARCHAR(20), 
+	DataPedido DATE NOT NULL,
+	StatusPedido VARCHAR(20) NOT NULL, 
 	ValorTotal DECIMAL(18, 6),
     IdCliente INT FOREIGN KEY REFERENCES Cliente(IdCliente)
 )
 
 CREATE TABLE Produto (
 	IdProduto INT PRIMARY KEY IDENTITY, 
-	NomeProduto VARCHAR(255),
-	Email VARCHAR(100), 
-	Preco Decimal(12,6),
-	Estoque INT,
-	Categoria VARCHAR(100), 
+	NomeProduto VARCHAR(255) NOT NULL,
+	Descricao VARCHAR(255),
+	Preco Decimal(12,6) NOT NULL,
+	Estoque INT NOT NULL,
+	Categoria VARCHAR(100)NOT NULL, 
 	Imagem VARCHAR(100)
 )
 
 CREATE TABLE Pagamento (
 	IdPagamento INT PRIMARY KEY IDENTITY,
-	FormaPagamento VARCHAR(20),
-	StatusPagamento VARCHAR(20),
-	DataPagamento DATETIME,
-	IdPedido INT FOREIGN KEY REFERENCES Pedido(IdPedido)
+	IdPedido INT FOREIGN KEY REFERENCES Pedido(IdPedido) NOT NULL,
+	FormaPagamento VARCHAR(20) NOT NULL,
+	StatusPagamento VARCHAR(20) NOT NULL,
+	DataPagamento DATETIME NOT NULL
 )
+
+-- ALTER TABLE Cliente ALTER COLUMN NomeCompleto VARCHAR(255) NOT NULL
 
 CREATE TABLE ItemPedido (
 	IdItem INT PRIMARY KEY IDENTITY, 
-	Quantidade INT,
-	IdPedido INT FOREIGN KEY REFERENCES Pedido(IdPedido),
-	IdProduto INT FOREIGN KEY REFERENCES Produto(IdProduto)
+	IdPedido INT FOREIGN KEY REFERENCES Pedido(IdPedido) NOT NULL,
+	IdProduto INT FOREIGN KEY REFERENCES Produto(IdProduto) NOT NULL,
+	Quantidade INT NOT NULL
 )
 
 -- ALTER TABLE TabelaFilho
 -- ADD CONSTRAINT FK_TabelaFilho_TabelaPai FOREIGN KEY (IdPai)
 -- REFERENCES TabelaPai(Id);
+
+
+DROP TABLE ItemPedido
+DROP TABLE Pedido
+DROP TABLE Produto
+DROP TABLE Pagamento
+DROP TABLE Cliente
+
+
+
+
