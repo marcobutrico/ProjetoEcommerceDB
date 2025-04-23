@@ -15,6 +15,8 @@ namespace API_Ecommerce.Controllers
         private readonly EcommerceContext _context;
 
         private IItemPedidoRepository _itempedidoRepository;
+
+       
         public ItemPedidoController(EcommerceContext context)
         {
             _context = context;
@@ -28,9 +30,9 @@ namespace API_Ecommerce.Controllers
             return Ok(_itempedidoRepository.ListarTodos());
         }
 
-        // Cadastrar Pedidos
+        // Cadastrar Itens dos Pedidos
         [HttpPost]
-        public IActionResult CadastrarItemPagamento(ItemPedido itempedido)
+        public IActionResult CadadstrarItemPedido(ItemPedido itempedido)
         {
             //1 - Coloco o Cliente no Banco de Dados
             _itempedidoRepository.Cadastrar(itempedido);
@@ -40,5 +42,65 @@ namespace API_Ecommerce.Controllers
             //201 - Created
             return Created();
         }
+
+
+
+
+        // Buscar Item do Pedido por ID
+        [HttpGet("{id}")]
+        public IActionResult BuscarPorId(int id)
+        {
+            ItemPedido itempedido = _itempedidoRepository.BuscarPorId(id);
+
+            if (itempedido == null)
+            {
+                // 404 - Não Encontrado
+                return NotFound();
+            }
+
+            return Ok(itempedido);
+        }
+
+
+        // Deleta Pedido por ID
+        [HttpDelete("{id}")]
+        public IActionResult Deletar(int id)
+        {
+            try
+            {
+                _itempedidoRepository.Deletar(id);
+
+                return NoContent();
+            }
+            // Caso dê erro
+            catch (Exception ex)
+            {
+
+                return NotFound("Item do Pedido não encontrado!");
+            }
+        }
+
+
+
+        // Edita Item do Pedido por ID
+        [HttpPut("{id}")]
+        public IActionResult Editar(int id, ItemPedido itempedido)
+        {
+            try
+            {
+                _itempedidoRepository.Atualizar(id, itempedido);
+                return Ok(itempedido);
+
+            }
+            // Caso dê erro
+            catch (Exception ex)
+            {
+
+                return NotFound(ex);
+            }
+        }
+
+
+
     }
 }

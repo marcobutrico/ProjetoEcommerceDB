@@ -29,5 +29,7 @@ namespace API_Ecommerce.Interfaces
         //D - Deletar por Id - Delete {id} 
         //Recebe um Id e deleta o cliente correspondente
         void Deletar(int id);
+
+        Cliente? BuscarPorEmailSenha(string email, string senha);
     }
 }

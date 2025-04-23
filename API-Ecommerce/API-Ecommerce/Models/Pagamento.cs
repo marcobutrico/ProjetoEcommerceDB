@@ -15,5 +15,5 @@ public partial class Pagamento
 
     public DateTime DataPagamento { get; set; }
 
-    public virtual Pedido IdPedidoNavigation { get; set; } = null!;
+    public virtual Pedido? IdPedidoNavigation { get; set; } = null!;
 }

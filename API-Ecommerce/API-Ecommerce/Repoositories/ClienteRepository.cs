@@ -41,6 +41,19 @@ namespace API_Ecommerce.Repoositories
 
         }
 
+
+        ////<sumary>
+        ////Acessa o Banco de Dados, e encontra o Cliente com email e senha fornecidos
+        ////</sumary>
+        ////<returns>Um cliente ou nulo</returns>
+        public Cliente? BuscarPorEmailSenha(string email, string senha)     //? reporta que pode ser nulo
+        {
+            //Encontrar cliente que possui o email e senha fornecidos
+            Cliente clienteEncontrado = _context.Clientes.FirstOrDefault(c  => c.Email == email && c.Senha == senha);
+
+            return clienteEncontrado;
+        }
+
         public Cliente BuscarPorId(int id)
         {
             return _context.Clientes.FirstOrDefault(c => c.IdCliente == id);
@@ -77,5 +90,6 @@ namespace API_Ecommerce.Repoositories
         {
             return _context.Clientes.ToList();
         }
+
     }
 }

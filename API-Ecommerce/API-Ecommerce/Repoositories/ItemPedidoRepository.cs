@@ -23,9 +23,26 @@ namespace API_Ecommerce.Repoositories
 
         public void Atualizar(int id, ItemPedido itempedido)
         {
-            throw new NotImplementedException();
+            //Encontre o produto que desejo
+            ItemPedido itempedidoEncontrado = _context.ItemPedidos.Find(id);
+            //Caso nao encontrado, lanço um erro
+            if (itempedidoEncontrado == null)
+            {
+                throw new Exception();
+            }
+            itempedidoEncontrado.IdPedido = itempedido.IdPedido;
+            itempedidoEncontrado.IdProduto = itempedido.IdProduto;
+            itempedidoEncontrado.Quantidade = itempedido.Quantidade;
+
+            _context.SaveChanges();
+
+
         }
 
+        public ItemPedido BuscarPorId(int id)
+        {
+            return _context.ItemPedidos.FirstOrDefault(e => e.IdItem == id);
+        }
 
         public void Cadastrar(ItemPedido itempedido)
         {
@@ -44,9 +61,5 @@ namespace API_Ecommerce.Repoositories
             //throw new NotImplementedException();
         }
 
-        ItemPedido IItemPedidoRepository.BuscarPorId(int id)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

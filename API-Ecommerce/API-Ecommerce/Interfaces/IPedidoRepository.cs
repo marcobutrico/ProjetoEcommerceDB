@@ -11,8 +11,8 @@ namespace API_Ecommerce.Interfaces
 
         //CRUD
         //Listar pedidos por Id - Read {id}
-        //Recebe um Id e retorna o cliente correspondente
-        Cliente BuscarPorId(int id);
+        //Recebe um Id e retorna o pedido correspondente
+        Pedido BuscarPorId(int id);
 
 
         //CRUD

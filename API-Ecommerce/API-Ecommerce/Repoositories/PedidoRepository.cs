@@ -62,9 +62,5 @@ namespace API_Ecommerce.Repoositories
             //throw new NotImplementedException();
         }
 
-        Cliente IPedidoRepository.BuscarPorId(int id)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

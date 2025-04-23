@@ -31,7 +31,7 @@ namespace API_Ecommerce.Controllers
 
         // Cadastrar Pedidos
         [HttpPost]
-        public IActionResult CadastrarPagamento(Pedido pedido)
+        public IActionResult CadadstrarPedido(Pedido pedido)
         {
             //1 - Coloco o Cliente no Banco de Dados
             _pedidoRepository.Cadastrar(pedido);
@@ -45,7 +45,7 @@ namespace API_Ecommerce.Controllers
 
 
 
-        // Buscar Produto por ID
+        // Buscar Pedido por ID
         [HttpGet("{id}")]
         public IActionResult BuscarPorId(int id)
         {
@@ -61,7 +61,7 @@ namespace API_Ecommerce.Controllers
         }
 
 
-        // Deleta Produto por ID
+        // Deleta Pedido por ID
         [HttpDelete("{id}")]
         public IActionResult Deletar(int id)
         {
@@ -81,7 +81,7 @@ namespace API_Ecommerce.Controllers
 
 
 
-        // Edita Produto por ID
+        // Edita Pedido por ID
         [HttpPut("{id}")]
         public IActionResult Editar(int id, Pedido pedido)
         {

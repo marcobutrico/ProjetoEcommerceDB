@@ -1,6 +1,7 @@
 ﻿using API_Ecommerce.Context;
 using API_Ecommerce.Interfaces;
 using API_Ecommerce.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace API_Ecommerce.Repoositories
 {
@@ -73,8 +74,7 @@ namespace API_Ecommerce.Repoositories
 
         public List<Pagamento> ListarTodos()
         {
-            return _context.Pagamentos.ToList();
-            //throw new NotImplementedException();
+            return _context.Pagamentos.Include(p => p.IdPedidoNavigation).ToList();
         }
 
 
