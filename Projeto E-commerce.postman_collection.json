@@ -276,6 +276,28 @@
 					"response": []
 				},
 				{
+					"name": "BuscarClientePorNome",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7293/api/cliente/buscar/marcos",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7293",
+							"path": [
+								"api",
+								"cliente",
+								"buscar",
+								"marcos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "BuscarPorId",
 					"request": {
 						"method": "GET",

@@ -1,4 +1,5 @@
-﻿using API_Ecommerce.Models;
+﻿using API_Ecommerce.DTO;
+using API_Ecommerce.Models;
 
 namespace API_Ecommerce.Interfaces
 {
@@ -18,7 +19,7 @@ namespace API_Ecommerce.Interfaces
         //CRUD
         //C - Create (cadastro)
         //Cliente       cliente (argumento)
-        void Cadastrar(Cliente cliente);
+        void Cadastrar(CadastrarClienteDto cliente);
 
         //CRUD
         //U - Update por Id - Update {id} e o que vai ser atualizado
@@ -31,5 +32,11 @@ namespace API_Ecommerce.Interfaces
         void Deletar(int id);
 
         Cliente? BuscarPorEmailSenha(string email, string senha);
+
+        //Buscar cliente por nome
+        List<Cliente> BuscarClientePorNome(string nome);
     }
+
+
+
 }

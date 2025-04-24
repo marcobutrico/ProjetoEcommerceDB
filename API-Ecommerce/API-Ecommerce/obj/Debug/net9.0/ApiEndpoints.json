@@ -100,6 +100,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "API_Ecommerce.Controllers.ClienteController",
+    "Method": "BuscarPorNome",
+    "RelativePath": "api/Cliente/buscar/{nome}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "nome",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "API_Ecommerce.Controllers.ItemPedidoController",
     "Method": "ListarTodos",
     "RelativePath": "api/ItemPedido",
@@ -356,7 +372,7 @@
     "Parameters": [
       {
         "Name": "produto",
-        "Type": "API_Ecommerce.Models.Produto",
+        "Type": "API_Ecommerce.DTO.CadastrarProdutoDto",
         "IsRequired": true
       }
     ],

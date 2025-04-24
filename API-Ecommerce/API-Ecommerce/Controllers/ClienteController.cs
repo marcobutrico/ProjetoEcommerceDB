@@ -29,7 +29,7 @@ namespace API_Ecommerce.Controllers
         }
 
         [HttpPost]
-        public IActionResult CadastrarCliente(Cliente cliente)
+        public IActionResult CadastrarCliente(CadastrarClienteDto cliente)
         {
             //1 - Coloco o Cliente no Banco de Dados
             _clienteRepository.Cadastrar(cliente);
@@ -112,6 +112,22 @@ namespace API_Ecommerce.Controllers
             return Ok(cliente);
 
         }
+
+        //Buscar por nome
+        // /api/cliente/joao
+        [HttpGet("buscar/{nome}")]
+        public IActionResult BuscarPorNome(string nome)
+        {
+            var cliente = _clienteRepository.BuscarClientePorNome(nome);
+
+            if (cliente == null)
+            {
+                return NotFound();
+            }
+            return Ok(cliente);
+
+        }
+
 
 
     }

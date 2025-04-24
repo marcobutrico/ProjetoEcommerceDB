@@ -17,6 +17,7 @@
 // 7 - Instalar pelo NuGet o Swagger: SwaggerGen e SwaggerUI
 
 
+using API_Ecommerce.DTO;
 using API_Ecommerce.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -38,13 +39,13 @@ namespace API_Ecommerce.Interfaces
         //CRUD
         //C - Create (cadastro)
         //Produto       produto (argumento)
-        void Cadastrar(Produto produto);
+        void Cadastrar(CadastrarProdutoDto produto);    //modificando de Produto para CadastrarProdutoDto 
 
 
         //CRUD
         //U - Update por Id - Update {id} e o que vai ser atualizado
         //Recebe um Id e atualizada o produto correspondente
-        void Atualizar(int id, Produto produto);
+        void Atualizar(int id, Produto produto); //modificando de Produto para CadastrarProdutoDto 
 
         //CRUD
         //D - Deletar por Id - Delete {id} 

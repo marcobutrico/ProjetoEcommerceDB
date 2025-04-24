@@ -1,4 +1,5 @@
 ﻿using API_Ecommerce.Context;
+using API_Ecommerce.DTO;
 using API_Ecommerce.Interfaces;
 using API_Ecommerce.Models;
 
@@ -54,9 +55,19 @@ namespace API_Ecommerce.Repoositories
         }
             
 
-        public void Cadastrar(Produto produto)
+        public void Cadastrar(CadastrarProdutoDto dtoproduto) // limitando a classe para os campos visualizaveis
         {
-            _context.Produtos.Add(produto);
+            Produto produtoCadastro = new Produto
+            {
+                NomeProduto = dtoproduto.NomeProduto,
+                Descricao = dtoproduto.Descricao,
+                Preco = dtoproduto.Preco,
+                Estoque = dtoproduto.Estoque,
+                Categoria = dtoproduto.Categoria,
+                Imagem = dtoproduto.Imagem
+
+            };
+            _context.Produtos.Add(produtoCadastro);
             //2. Salvar a alteracao
             _context.SaveChanges();
 

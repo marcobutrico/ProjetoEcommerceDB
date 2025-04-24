@@ -1,4 +1,6 @@
-﻿using API_Ecommerce.Context;
+﻿using System.Linq;
+using API_Ecommerce.Context;
+using API_Ecommerce.DTO;
 using API_Ecommerce.Interfaces;
 using API_Ecommerce.Models;
 
@@ -41,6 +43,21 @@ namespace API_Ecommerce.Repoositories
 
         }
 
+        public List<Cliente> BuscarClientePorNome(string nome)
+        {
+            //Where - traz todos que atendem uma condicao
+            //var listaClientes = _context.Clientes.Where(c => c.NomeCompleto == nome).ToList();
+            var listaClientes = _context.Clientes
+            .Where(c => c.NomeCompleto.Contains(nome))
+            .ToList();
+
+            return listaClientes;
+        }
+
+
+        //DTO (Data Transfer Object) - classe que oculta informacoes (exemplo senha de cliente
+        //Cadastrar ou Editar (DTO)
+        // Listar ViewModel -> DTO)
 
         ////<sumary>
         ////Acessa o Banco de Dados, e encontra o Cliente com email e senha fornecidos
@@ -49,7 +66,7 @@ namespace API_Ecommerce.Repoositories
         public Cliente? BuscarPorEmailSenha(string email, string senha)     //? reporta que pode ser nulo
         {
             //Encontrar cliente que possui o email e senha fornecidos
-            Cliente clienteEncontrado = _context.Clientes.FirstOrDefault(c  => c.Email == email && c.Senha == senha);
+            Cliente clienteEncontrado = _context.Clientes.FirstOrDefault(c => c.Email == email && c.Senha == senha);
 
             return clienteEncontrado;
         }
@@ -59,9 +76,20 @@ namespace API_Ecommerce.Repoositories
             return _context.Clientes.FirstOrDefault(c => c.IdCliente == id);
         }
 
-        public void Cadastrar(Cliente cliente)
+        public void Cadastrar(CadastrarClienteDto dtocliente)
         {
-            _context.Clientes.Add(cliente);
+
+            Cliente clienteCadastro = new Cliente
+            {
+                NomeCompleto = dtocliente.NomeCompleto,
+                Email = dtocliente.Email,
+                Telefone = dtocliente.Telefone,
+                Endereco = dtocliente.Endereco,
+                Senha = dtocliente.Senha,
+                DataCadastro = dtocliente.DataCadastro,
+            };
+
+            _context.Clientes.Add(clienteCadastro);
             _context.SaveChanges();
         }
 
@@ -88,7 +116,9 @@ namespace API_Ecommerce.Repoositories
 
         public List<Cliente> ListarTodos()
         {
-            return _context.Clientes.ToList();
+            return _context.Clientes
+                .OrderBy(c => c.NomeCompleto)
+                .ToList();
         }
 
     }
