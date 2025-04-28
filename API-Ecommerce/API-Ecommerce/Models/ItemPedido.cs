@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace API_Ecommerce.Models;
 
@@ -13,7 +14,8 @@ public partial class ItemPedido
 
     public int Quantidade { get; set; }
 
-    public virtual Pedido IdPedidoNavigation { get; set; } = null!;
+    [JsonIgnore]
+     public virtual Pedido IdPedidoNavigation { get; set; } = null!;
 
     public virtual Produto IdProdutoNavigation { get; set; } = null!;
 }

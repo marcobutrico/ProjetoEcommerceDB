@@ -1,125 +1,159 @@
-﻿using System.Linq;
-using API_Ecommerce.Context;
+﻿using API_Ecommerce.Context;
 using API_Ecommerce.DTO;
 using API_Ecommerce.Interfaces;
 using API_Ecommerce.Models;
+using API_Ecommerce.ViewModels;
 
-namespace API_Ecommerce.Repoositories
+namespace API_ECommerce.Repositories
 {
+    // Repository - Métodos que acessam o Banco de Dados
+    // 1 - Herda da Interface
+    // 2 - Implementa a Interface
+    // 3 - Injetar o Contexto
     public class ClienteRepository : IClienteRepository
     {
-        // Metodos que acessam o banco de dados
-
-        //Injetar o contexto Context 
-        // Injecao de dependencia
-
-        //salva o conteudo de Context
+        // 4 - Variavel privada, porque só vai ser usada nessa classe.
         private readonly EcommerceContext _context;
 
+        // Método Construtor - ctor
+        // Quando criar um objeto o que eu preciso ter?
+        // É semelhante ao new()
+        // Ação de Injetar
+
+        // Metodo Construtor - É um metodo que tem o mesmo nome da classe
         public ClienteRepository(EcommerceContext context)
         {
             _context = context;
         }
 
 
-        public void Atualizar(int id, Cliente cliente)
+        public List<ListarClienteViewModel> ListarTodos()
         {
-            //Encontre o produto que desejo
-            Cliente clienteEncontrado = _context.Clientes.Find(id);
-            //Caso nao encontrado, lanço um erro
-            if (clienteEncontrado == null)
+            // Select permite que eu selecione quais campos eu quero pegar
+            return _context.Clientes.Select(c => new ListarClienteViewModel
             {
-                throw new Exception();
-            }
-            clienteEncontrado.NomeCompleto = cliente.NomeCompleto;
-            clienteEncontrado.Email = cliente.Email;
-            clienteEncontrado.Telefone = cliente.Telefone;
-            clienteEncontrado.Endereco = cliente.Endereco;
-            clienteEncontrado.Senha = cliente.Senha;
-            clienteEncontrado.DataCadastro = cliente.DataCadastro;
-
-            _context.SaveChanges();
-
-
+                IdCliente = c.IdCliente,
+                NomeCompleto = c.NomeCompleto,
+                Endereco = c.Endereco,
+                Telefone = c.Telefone,
+                Email = c.Email,
+            }).ToList();
         }
 
         public List<Cliente> BuscarClientePorNome(string nome)
         {
             //Where - traz todos que atendem uma condicao
             //var listaClientes = _context.Clientes.Where(c => c.NomeCompleto == nome).ToList();
-            var listaClientes = _context.Clientes
-            .Where(c => c.NomeCompleto.Contains(nome))
-            .ToList();
+            var listaClientes = _context.Clientes.Where(c => c.NomeCompleto.Contains(nome)).ToList();
 
             return listaClientes;
         }
 
+        /// <summary>
+        /// Vai acessar o Banco de Dados e Encontra o Cliente com E-mail e Senha fornecidos
+        /// </summary>
+        /// <returns>Um cliente ou null</returns>
 
-        //DTO (Data Transfer Object) - classe que oculta informacoes (exemplo senha de cliente
-        //Cadastrar ou Editar (DTO)
-        // Listar ViewModel -> DTO)
-
-        ////<sumary>
-        ////Acessa o Banco de Dados, e encontra o Cliente com email e senha fornecidos
-        ////</sumary>
-        ////<returns>Um cliente ou nulo</returns>
-        public Cliente? BuscarPorEmailSenha(string email, string senha)     //? reporta que pode ser nulo
+        public ListarClienteViewModel? BuscarPorEmailSenha(string email, string senha)
         {
-            //Encontrar cliente que possui o email e senha fornecidos
-            Cliente clienteEncontrado = _context.Clientes.FirstOrDefault(c => c.Email == email && c.Senha == senha);
+            var cliente = _context.Clientes
+                                  .Where(c => c.Email == email && c.Senha == senha)
+                                  .FirstOrDefault();
 
-            return clienteEncontrado;
+            if (cliente == null)
+            {
+                return null;
+            }
+
+            return new ListarClienteViewModel
+            {
+                IdCliente = cliente.IdCliente,
+                NomeCompleto = cliente.NomeCompleto,
+                Email = cliente.Email,
+                Telefone = cliente.Telefone,
+                Endereco = cliente.Endereco,
+                DataCadastro = cliente.DataCadastro
+            };
         }
 
-        public Cliente BuscarPorId(int id)
+        public Cliente? BuscarPorId(int id)
         {
             return _context.Clientes.FirstOrDefault(c => c.IdCliente == id);
         }
 
-        public void Cadastrar(CadastrarClienteDto dtocliente)
+
+
+
+
+
+
+
+
+
+
+
+        public void Atualizar(int id, CadastrarClienteDto clienteDto)
         {
+            var clienteEncontrado = _context.Clientes.Find(id);
 
-            Cliente clienteCadastro = new Cliente
+            if (clienteEncontrado == null)
             {
-                NomeCompleto = dtocliente.NomeCompleto,
-                Email = dtocliente.Email,
-                Telefone = dtocliente.Telefone,
-                Endereco = dtocliente.Endereco,
-                Senha = dtocliente.Senha,
-                DataCadastro = dtocliente.DataCadastro,
-            };
+                throw new ArgumentNullException("Cliente não encontrado!");
+            }
 
-            _context.Clientes.Add(clienteCadastro);
+            // Atualize as propriedades do cliente com o DTO
+            clienteEncontrado.NomeCompleto = clienteDto.NomeCompleto;
+            clienteEncontrado.Email = clienteDto.Email;
+            clienteEncontrado.Senha = clienteDto.Senha;
+            clienteEncontrado.Telefone = clienteDto.Telefone;
+            clienteEncontrado.Endereco = clienteDto.Endereco;
+            clienteEncontrado.DataCadastro = clienteDto.DataCadastro;
+
             _context.SaveChanges();
         }
 
 
+
+        public void Cadastrar(CadastrarClienteDto cliente)
+        {
+            Cliente clienteCadastro = new Cliente
+            {
+                NomeCompleto = cliente.NomeCompleto,
+                Endereco = cliente.Endereco,
+                Telefone = cliente.Telefone,
+                Email = cliente.Email,
+                Senha = cliente.Senha,
+                DataCadastro = cliente.DataCadastro,
+
+            };
+            _context.Clientes.Add(clienteCadastro);
+            // 2 - Salvo a Alteração
+            _context.SaveChanges();
+        }
+
         public void Deletar(int id)
         {
-            //1. Encontrar o produto que quero excluir
-            //Find. procura pela chave primaria
-            Cliente clienteEncontrado = _context.Clientes.Find(id);
+            var clienteEncontrado = _context.Clientes.Find(id);
 
-
-            //Caso nao encontrado, lanço um erro
             if (clienteEncontrado == null)
             {
-                throw new Exception();
+                throw new ArgumentNullException("Cliente não encontrado!");
             }
 
             _context.Clientes.Remove(clienteEncontrado);
 
-            //Salvo as alteracoes
             _context.SaveChanges();
-
         }
 
-        public List<Cliente> ListarTodos()
+
+        ListarClienteViewModel? IClienteRepository.BuscarPorEmailSenha(string email, string senha)
         {
-            return _context.Clientes
-                .OrderBy(c => c.NomeCompleto)
-                .ToList();
+            throw new NotImplementedException();
         }
 
+        List<ListarClienteViewModel> IClienteRepository.BuscarClientePorNome(string nome)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

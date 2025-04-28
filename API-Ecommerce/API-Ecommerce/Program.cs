@@ -3,6 +3,7 @@
 using API_Ecommerce.Context;
 using API_Ecommerce.Interfaces;
 using API_Ecommerce.Repoositories;
+using API_ECommerce.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +18,7 @@ builder.Services.AddDbContext<EcommerceContext, EcommerceContext>();
 builder.Services.AddScoped<IProdutoRepository, ProdutoRepository>();
 builder.Services.AddTransient<IClienteRepository, ClienteRepository>();
 builder.Services.AddTransient<IPagamentoRepository, PagamentoRepository>();
+builder.Services.AddTransient<IPedidoRepository, PedidoRepository>();
 var app = builder.Build();
 
 

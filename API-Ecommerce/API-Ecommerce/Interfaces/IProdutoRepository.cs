@@ -19,6 +19,7 @@
 
 using API_Ecommerce.DTO;
 using API_Ecommerce.Models;
+using API_Ecommerce.ViewModels;
 using Microsoft.EntityFrameworkCore;
 
 namespace API_Ecommerce.Interfaces
@@ -28,12 +29,12 @@ namespace API_Ecommerce.Interfaces
         //Fachada - Contrato 
         //CRUD
         //Listar produtos - Read all
-        List<Produto> ListarTodos();
+        List<ListaProdutoViewModel> ListarTodos();
 
         //CRUD
         //Listar produtos por Id - Read {id}
         //Recebe um Id e retorna o produto correspondente
-        Produto BuscarPorId(int id);
+        ListaProdutoViewModel BuscarPorId(int id);
 
 
         //CRUD
@@ -45,7 +46,7 @@ namespace API_Ecommerce.Interfaces
         //CRUD
         //U - Update por Id - Update {id} e o que vai ser atualizado
         //Recebe um Id e atualizada o produto correspondente
-        void Atualizar(int id, Produto produto); //modificando de Produto para CadastrarProdutoDto 
+        void Atualizar(int id, CadastrarProdutoDto produto); //modificando de Produto para CadastrarProdutoDto 
 
         //CRUD
         //D - Deletar por Id - Delete {id} 

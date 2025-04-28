@@ -1,4 +1,5 @@
-﻿using API_Ecommerce.Models;
+﻿using API_Ecommerce.DTO;
+using API_Ecommerce.Models;
 
 namespace API_Ecommerce.Interfaces
 {
@@ -18,7 +19,7 @@ namespace API_Ecommerce.Interfaces
         //CRUD
         //C - Create (cadastro)
         //Pedido       pedido (argumento)
-        void Cadastrar(Pedido pedido);
+        void Cadastrar(CadastrarPedidoDto pedido);
 
         //CRUD
         //U - Update por Id - Update {id} e o que vai ser atualizado

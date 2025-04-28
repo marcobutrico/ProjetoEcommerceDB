@@ -2,6 +2,7 @@
 using API_Ecommerce.DTO;
 using API_Ecommerce.Interfaces;
 using API_Ecommerce.Models;
+using API_Ecommerce.ViewModels;
 
 namespace API_Ecommerce.Repoositories
 {
@@ -27,7 +28,7 @@ namespace API_Ecommerce.Repoositories
             _context = context;
         }
 
-        public void Atualizar(int id, Produto produto)
+        public void Atualizar(int id, CadastrarProdutoDto produto)
         {
             //Encontre o produto que desejo
             Produto produtoEncontrado = _context.Produtos.Find(id);
@@ -48,12 +49,7 @@ namespace API_Ecommerce.Repoositories
 
         }
 
-        public Produto BuscarPorId(int id)
-        {
 
-            return _context.Produtos.FirstOrDefault(e => e.IdProduto == id);
-        }
-            
 
         public void Cadastrar(CadastrarProdutoDto dtoproduto) // limitando a classe para os campos visualizaveis
         {
@@ -99,9 +95,40 @@ namespace API_Ecommerce.Repoositories
 
         }
 
-        public List<Produto> ListarTodos()
+
+
+
+        ListaProdutoViewModel IProdutoRepository.BuscarPorId(int id)
         {
-            return _context.Produtos.ToList();
+             return _context.Produtos
+            .Where(e => e.IdProduto == id)
+            .Select(p => new ListaProdutoViewModel
+            {
+                IdProduto = p.IdProduto,
+                NomeProduto = p.NomeProduto,
+                Descricao = p.Descricao,
+                Preco = p.Preco,
+                Estoque = p.Estoque,
+                Categoria = p.Categoria,
+                Imagem = p.Imagem
+            }).FirstOrDefault();
+
+        }
+
+
+        List<ListaProdutoViewModel> IProdutoRepository.ListarTodos()
+        {
+            return _context.Produtos
+            .Select(p => new ListaProdutoViewModel
+            {
+                IdProduto = p.IdProduto,
+                NomeProduto = p.NomeProduto,
+                Descricao = p.Descricao,
+                Preco = p.Preco,
+                Estoque = p.Estoque,
+                Categoria = p.Categoria,
+                Imagem = p.Imagem
+            }).ToList();
         }
     }
 }

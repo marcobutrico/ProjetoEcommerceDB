@@ -1,4 +1,5 @@
 ﻿using API_Ecommerce.Context;
+using API_Ecommerce.DTO;
 using API_Ecommerce.Interfaces;
 using API_Ecommerce.Models;
 
@@ -21,7 +22,7 @@ namespace API_Ecommerce.Repoositories
             _context = context;
         }
 
-        public void Atualizar(int id, Pedido pedido)
+        public void Atualizar(int id, CadastrarPedidoDto pedido)
         {
             //Encontre o produto que desejo
             Pedido pedidoEncontrado = _context.Pedidos.Find(id);
@@ -36,30 +37,27 @@ namespace API_Ecommerce.Repoositories
             pedidoEncontrado.IdCliente = pedido.IdCliente;
 
             _context.SaveChanges();
-
-
         }
+
+        public void Cadastrar(CadastrarPedidoDto pedido)
+        {
+            _context.Pedidos.Add(pedido);
+            _context.SaveChanges();
+        }
+
+
+
 
         public Pedido BuscarPorId(int id)
         {
             return _context.Pedidos.FirstOrDefault(e => e.IdPedido == id);
         }
 
-        public void Cadastrar(Pedido pedido)
-        {
-            _context.Pedidos.Add(pedido);
-            _context.SaveChanges();
-        }
 
-        public void Deletar(int id)
-        {
-            throw new NotImplementedException();
-        }
 
-        public List<Pedido> ListarTodos()
+         public List<Pedido> ListarTodos()
         {
-            return _context.Pedidos.ToList();
-            //throw new NotImplementedException();
+            return _context.Pedidos.Include(p => p.ItemPedidos).ThenInclude(c=>c.NomeProduto).ToList();
         }
 
     }

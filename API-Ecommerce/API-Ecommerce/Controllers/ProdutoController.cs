@@ -3,6 +3,7 @@ using API_Ecommerce.DTO;
 using API_Ecommerce.Interfaces;
 using API_Ecommerce.Models;
 using API_Ecommerce.Repoositories;
+using API_Ecommerce.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -32,24 +33,11 @@ namespace API_Ecommerce.Controllers
             return Ok(_produtoRepository.ListarTodos());
         }
 
-
-        // Cadastrar Produtos
-        [HttpPost]
-        public IActionResult CadastrarProduto(CadastrarProdutoDto produto)
-        {
-            //1 - Coloco o Produto no Banco de Dados
-            _produtoRepository.Cadastrar(produto);
-
-            //Retorna o resultado
-            //201 - Created
-            return Created();
-        }
-
         // Buscar Produto por ID
         [HttpGet("{id}")]
         public IActionResult BuscarPorId(int id)
         {
-            Produto produto = _produtoRepository.BuscarPorId(id);
+            ListaProdutoViewModel produto = _produtoRepository.BuscarPorId(id);
 
             if (produto == null)
             {
@@ -59,6 +47,45 @@ namespace API_Ecommerce.Controllers
 
             return Ok(produto);
         }
+
+
+
+
+
+        // Cadastrar Produtos
+        [HttpPost]
+        public IActionResult CadastrarProduto(CadastrarProdutoDto dtoproduto)
+        {
+            //1 - Coloco o Produto no Banco de Dados
+            _produtoRepository.Cadastrar(dtoproduto);
+
+            //Retorna o resultado
+            //201 - Created
+            return Created();
+        }
+
+
+        // Edita Produto por ID
+        [HttpPut("{id}")]
+        public IActionResult Editar(int id, CadastrarProdutoDto dtoprod)
+        {
+            try
+            {
+                _produtoRepository.Atualizar(id, dtoprod);
+                return Ok(dtoprod);
+
+            }
+            // Caso dê erro
+            catch (Exception ex)
+            {
+
+                return NotFound(ex);
+            }
+        }
+
+
+
+
 
 
         // Deleta Produto por ID
@@ -79,27 +106,6 @@ namespace API_Ecommerce.Controllers
             }
         }
 
-
-
-        // Edita Produto por ID
-        [HttpPut("{id}")]
-        public IActionResult Editar(int id, Produto prod)
-        {
-            try
-            {
-                _produtoRepository.Atualizar(id, prod);
-                return Ok(prod);
-
-            }
-            // Caso dê erro
-            catch (Exception ex)
-            {
-
-                return NotFound(ex);
-            }
-        }
-
-
-
+        
     }
 }

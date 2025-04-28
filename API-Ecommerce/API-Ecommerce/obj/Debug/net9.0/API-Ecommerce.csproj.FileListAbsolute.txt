@@ -11,7 +11,6 @@ C:\Users\fic\Documents\MarcoAB\ecommerce\API-Ecommerce\API-Ecommerce\obj\Debug\n
 C:\Users\fic\Documents\MarcoAB\ecommerce\API-Ecommerce\API-Ecommerce\obj\Debug\net9.0\API-Ecommerce.AssemblyInfo.cs
 C:\Users\fic\Documents\MarcoAB\ecommerce\API-Ecommerce\API-Ecommerce\obj\Debug\net9.0\API-Ecommerce.csproj.CoreCompileInputs.cache
 C:\Users\fic\Documents\MarcoAB\ecommerce\API-Ecommerce\API-Ecommerce\obj\Debug\net9.0\API-Ecommerce.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\fic\Documents\MarcoAB\ecommerce\API-Ecommerce\API-Ecommerce\obj\Debug\net9.0\API-Ecommerce.sourcelink.json
 C:\Users\fic\Documents\MarcoAB\ecommerce\API-Ecommerce\API-Ecommerce\obj\Debug\net9.0\scopedcss\bundle\API-Ecommerce.styles.css
 C:\Users\fic\Documents\MarcoAB\ecommerce\API-Ecommerce\API-Ecommerce\obj\Debug\net9.0\staticwebassets.build.json
 C:\Users\fic\Documents\MarcoAB\ecommerce\API-Ecommerce\API-Ecommerce\obj\Debug\net9.0\staticwebassets.development.json

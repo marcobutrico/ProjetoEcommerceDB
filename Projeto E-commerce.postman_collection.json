@@ -126,125 +126,6 @@
 			"description": "Pasta para os verbos para a parte da API para o Produto"
 		},
 		{
-			"name": "Pagamento",
-			"item": [
-				{
-					"name": "ListarTodos",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://localhost:7293/api/pagamento/",
-							"protocol": "https",
-							"host": [
-								"localhost"
-							],
-							"port": "7293",
-							"path": [
-								"api",
-								"pagamento",
-								""
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "BuscarPorId",
-					"request": {
-						"method": "GET",
-						"header": []
-					},
-					"response": []
-				},
-				{
-					"name": "Cadastro",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "    {\r\n        \"nomeProduto\": \"Impressora turbinada da boa\",\r\n        \"preco\": 500,\r\n        \"estoque\": 1050,\r\n        \"categoria\": \"Impressoras\",\r\n    }",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "https://localhost:7293/",
-							"protocol": "https",
-							"host": [
-								"localhost"
-							],
-							"port": "7293",
-							"path": [
-								""
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Editar",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "    {\r\n        \"nomeProduto\": \"Impressora turbinada da boa\",\r\n        \"preco\": 500,\r\n        \"estoque\": 1050,\r\n        \"categoria\": \"Impressoras\",\r\n    }",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "https://localhost:7293/",
-							"protocol": "https",
-							"host": [
-								"localhost"
-							],
-							"port": "7293",
-							"path": [
-								""
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Deletar",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "    {\r\n        \"nomeProduto\": \"Impressora turbinada da boa\",\r\n        \"preco\": 500,\r\n        \"estoque\": 1050,\r\n        \"categoria\": \"Impressoras\",\r\n    }",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "https://localhost:7293/",
-							"protocol": "https",
-							"host": [
-								"localhost"
-							],
-							"port": "7293",
-							"path": [
-								""
-							]
-						}
-					},
-					"response": []
-				}
-			],
-			"description": "Pasta para os verbos para a parte da API para o Pagamento"
-		},
-		{
 			"name": "Clientes",
 			"item": [
 				{
@@ -386,6 +267,125 @@
 			"description": "Pasta para os verbos para a parte da API para o Cliente"
 		},
 		{
+			"name": "Pagamento",
+			"item": [
+				{
+					"name": "ListarTodos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7293/api/pagamento/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7293",
+							"path": [
+								"api",
+								"pagamento",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BuscarPorId",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastro",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"nomeProduto\": \"Impressora turbinada da boa\",\r\n        \"preco\": 500,\r\n        \"estoque\": 1050,\r\n        \"categoria\": \"Impressoras\",\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7293/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7293",
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"nomeProduto\": \"Impressora turbinada da boa\",\r\n        \"preco\": 500,\r\n        \"estoque\": 1050,\r\n        \"categoria\": \"Impressoras\",\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7293/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7293",
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"nomeProduto\": \"Impressora turbinada da boa\",\r\n        \"preco\": 500,\r\n        \"estoque\": 1050,\r\n        \"categoria\": \"Impressoras\",\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7293/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7293",
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Pasta para os verbos para a parte da API para o Pagamento"
+		},
+		{
 			"name": "Item Pedido",
 			"item": [
 				{
@@ -466,7 +466,7 @@
 			"name": "Pedido",
 			"item": [
 				{
-					"name": "LisstarTodos",
+					"name": "ListarTodos",
 					"request": {
 						"method": "GET",
 						"header": []

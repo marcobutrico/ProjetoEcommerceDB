@@ -1,5 +1,6 @@
 ﻿using API_Ecommerce.DTO;
 using API_Ecommerce.Models;
+using API_Ecommerce.ViewModels;
 
 namespace API_Ecommerce.Interfaces
 {
@@ -8,7 +9,7 @@ namespace API_Ecommerce.Interfaces
         //Fachada - Contrato 
         //CRUD
         //Listar clientes - Read all
-        List<Cliente> ListarTodos();
+        List<ListarClienteViewModel> ListarTodos();
 
         //CRUD
         //Listar clientes por Id - Read {id}
@@ -24,17 +25,17 @@ namespace API_Ecommerce.Interfaces
         //CRUD
         //U - Update por Id - Update {id} e o que vai ser atualizado
         //Recebe um Id e atualizada o cliente correspondente
-        void Atualizar(int id, Cliente cliente);
+        void Atualizar(int id, CadastrarClienteDto cliente);
 
         //CRUD
         //D - Deletar por Id - Delete {id} 
         //Recebe um Id e deleta o cliente correspondente
         void Deletar(int id);
 
-        Cliente? BuscarPorEmailSenha(string email, string senha);
+        ListarClienteViewModel? BuscarPorEmailSenha(string email, string senha);
 
         //Buscar cliente por nome
-        List<Cliente> BuscarClientePorNome(string nome);
+        List<ListarClienteViewModel> BuscarClientePorNome(string nome);
     }
 
 

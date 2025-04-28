@@ -24,17 +24,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Cliente"
+                "$ref": "#/components/schemas/CadastrarClienteDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Cliente"
+                "$ref": "#/components/schemas/CadastrarClienteDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Cliente"
+                "$ref": "#/components/schemas/CadastrarClienteDto"
               }
             }
           }
@@ -451,17 +451,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Pedido"
+                "$ref": "#/components/schemas/CadastrarPedidoDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Pedido"
+                "$ref": "#/components/schemas/CadastrarPedidoDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Pedido"
+                "$ref": "#/components/schemas/CadastrarPedidoDto"
               }
             }
           }
@@ -685,6 +685,72 @@
   },
   "components": {
     "schemas": {
+      "CadastrarClienteDto": {
+        "type": "object",
+        "properties": {
+          "nomeCompleto": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "telefone": {
+            "type": "string",
+            "nullable": true
+          },
+          "endereco": {
+            "type": "string",
+            "nullable": true
+          },
+          "senha": {
+            "type": "string",
+            "nullable": true
+          },
+          "dataCadastro": {
+            "type": "string",
+            "format": "date"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CadastrarPedidoDto": {
+        "type": "object",
+        "properties": {
+          "idPedido": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "dataPedido": {
+            "type": "string",
+            "format": "date"
+          },
+          "statusPedido": {
+            "type": "string",
+            "nullable": true
+          },
+          "valorTotal": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "idCliente": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "produtos": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "CadastrarProdutoDto": {
         "type": "object",
         "properties": {

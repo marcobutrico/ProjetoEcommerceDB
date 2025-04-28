@@ -1,7 +1,8 @@
 ﻿using API_Ecommerce.Context;
+using API_Ecommerce.DTO;
 using API_Ecommerce.Interfaces;
 using API_Ecommerce.Models;
-using API_Ecommerce.Repoositories;
+using API_ECommerce.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -17,8 +18,8 @@ namespace API_Ecommerce.Controllers
         private IClienteRepository _clienteRepository;
         public ClienteController(EcommerceContext context)
         {
+            _clienteRepository = clienteRepository;
             _context = context;
-            _clienteRepository = new ClienteRepository(_context);
         }
 
         // GET

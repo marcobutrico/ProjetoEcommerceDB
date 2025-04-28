@@ -19,7 +19,7 @@
     "Parameters": [
       {
         "Name": "cliente",
-        "Type": "API_Ecommerce.Models.Cliente",
+        "Type": "API_Ecommerce.DTO.CadastrarClienteDto",
         "IsRequired": true
       }
     ],
@@ -293,7 +293,7 @@
     "Parameters": [
       {
         "Name": "pedido",
-        "Type": "API_Ecommerce.Models.Pedido",
+        "Type": "API_Ecommerce.DTO.CadastrarPedidoDto",
         "IsRequired": true
       }
     ],
