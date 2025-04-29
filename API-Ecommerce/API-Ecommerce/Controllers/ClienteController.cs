@@ -2,6 +2,7 @@
 using API_Ecommerce.DTO;
 using API_Ecommerce.Interfaces;
 using API_Ecommerce.Models;
+using API_Ecommerce.Services;
 using API_ECommerce.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -16,15 +17,18 @@ namespace API_Ecommerce.Controllers
         private readonly EcommerceContext _context;
 
         private IClienteRepository _clienteRepository;
-        public ClienteController(EcommerceContext context)
+
+        //Instanciar o PasswordService
+        private PasswordService passwordService = new PasswordService();
+
+        public ClienteController(IClienteRepository clienteRepository)
         {
             _clienteRepository = clienteRepository;
-            _context = context;
         }
 
         // GET
         [HttpGet]
-        public IActionResult ListarTodos()
+        public IActionResult ListarClientes()
         {
             return Ok(_clienteRepository.ListarTodos());
         }
@@ -32,11 +36,9 @@ namespace API_Ecommerce.Controllers
         [HttpPost]
         public IActionResult CadastrarCliente(CadastrarClienteDto cliente)
         {
+           
             //1 - Coloco o Cliente no Banco de Dados
             _clienteRepository.Cadastrar(cliente);
-
-            //2. Salvar a alteracao
-            _context.SaveChanges();
 
             //Retorna o resultado
             //201 - Created
@@ -82,7 +84,7 @@ namespace API_Ecommerce.Controllers
 
         // Edita Produto por ID
         [HttpPut("{id}")]
-        public IActionResult Editar(int id, Cliente cliente)
+        public IActionResult Editar(int id, CadastrarClienteDto cliente)
         {
             try
             {

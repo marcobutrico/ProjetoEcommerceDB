@@ -2,6 +2,7 @@
 using API_Ecommerce.DTO;
 using API_Ecommerce.Interfaces;
 using API_Ecommerce.Models;
+using API_Ecommerce.Services;
 using API_Ecommerce.ViewModels;
 
 namespace API_ECommerce.Repositories
@@ -94,6 +95,7 @@ namespace API_ECommerce.Repositories
 
         public void Atualizar(int id, CadastrarClienteDto clienteDto)
         {
+            var passwordService = new PasswordService(); 
             var clienteEncontrado = _context.Clientes.Find(id);
 
             if (clienteEncontrado == null)
@@ -109,6 +111,8 @@ namespace API_ECommerce.Repositories
             clienteEncontrado.Endereco = clienteDto.Endereco;
             clienteEncontrado.DataCadastro = clienteDto.DataCadastro;
 
+            clienteEncontrado.Senha = passwordService.HashPassword(clienteEncontrado);
+
             _context.SaveChanges();
         }
 
@@ -116,17 +120,21 @@ namespace API_ECommerce.Repositories
 
         public void Cadastrar(CadastrarClienteDto cliente)
         {
-            Cliente clienteCadastro = new Cliente
+            var passwordService = new PasswordService();
+
+            Cliente clienteCadastrar = new Cliente
             {
                 NomeCompleto = cliente.NomeCompleto,
                 Endereco = cliente.Endereco,
                 Telefone = cliente.Telefone,
                 Email = cliente.Email,
                 Senha = cliente.Senha,
-                DataCadastro = cliente.DataCadastro,
-
+                DataCadastro = DateOnly.FromDateTime(DateTime.Now)
             };
-            _context.Clientes.Add(clienteCadastro);
+
+            clienteCadastrar.Senha = passwordService.HashPassword(clienteCadastrar);
+
+            _context.Clientes.Add(clienteCadastrar);
             // 2 - Salvo a Alteração
             _context.SaveChanges();
         }

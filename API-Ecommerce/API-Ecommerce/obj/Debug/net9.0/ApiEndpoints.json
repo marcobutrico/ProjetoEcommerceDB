@@ -1,7 +1,7 @@
 [
   {
     "ContainingType": "API_Ecommerce.Controllers.ClienteController",
-    "Method": "ListarTodos",
+    "Method": "ListarClientes",
     "RelativePath": "api/Cliente",
     "HttpMethod": "GET",
     "IsController": true,
@@ -93,7 +93,7 @@
       },
       {
         "Name": "cliente",
-        "Type": "API_Ecommerce.Models.Cliente",
+        "Type": "API_Ecommerce.DTO.CadastrarClienteDto",
         "IsRequired": true
       }
     ],
@@ -371,7 +371,7 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "produto",
+        "Name": "dtoproduto",
         "Type": "API_Ecommerce.DTO.CadastrarProdutoDto",
         "IsRequired": true
       }
@@ -383,22 +383,6 @@
     "Method": "BuscarPorId",
     "RelativePath": "api/Produto/{id}",
     "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "API_Ecommerce.Controllers.ProdutoController",
-    "Method": "Deletar",
-    "RelativePath": "api/Produto/{id}",
-    "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -424,8 +408,24 @@
         "IsRequired": true
       },
       {
-        "Name": "prod",
-        "Type": "API_Ecommerce.Models.Produto",
+        "Name": "dtoprod",
+        "Type": "API_Ecommerce.DTO.CadastrarProdutoDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_Ecommerce.Controllers.ProdutoController",
+    "Method": "Deletar",
+    "RelativePath": "api/Produto/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],

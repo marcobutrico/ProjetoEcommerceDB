@@ -230,8 +230,30 @@
 				{
 					"name": "Editar",
 					"request": {
-						"method": "GET",
-						"header": []
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"nomeCompleto\": \"Josefina da Silva\",\r\n        \"email\": \"zezinha@gmail.com\",\r\n        \"telefone\": \"(11)987654444\",\r\n        \"endereco\": \"Rua dos Loucos, 0 - Sao Paulo/SP\",\r\n        \"senha\": \"1234\",\r\n        \"dataCadastro\": \"2025-05-05\",\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7293/api/cliente/7",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7293",
+							"path": [
+								"api",
+								"cliente",
+								"7"
+							]
+						}
 					},
 					"response": []
 				},

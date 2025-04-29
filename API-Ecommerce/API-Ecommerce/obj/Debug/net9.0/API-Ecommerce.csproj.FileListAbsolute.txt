@@ -166,3 +166,4 @@ C:\Users\fic\Documents\MarcoAB\ecommerce\API-Ecommerce\API-Ecommerce\bin\Debug\n
 C:\Users\fic\Documents\MarcoAB\ecommerce\API-Ecommerce\API-Ecommerce\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\fic\Documents\MarcoAB\ecommerce\API-Ecommerce\API-Ecommerce\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\fic\Documents\MarcoAB\ecommerce\API-Ecommerce\API-Ecommerce\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
+C:\Users\fic\Documents\MarcoAB\ecommerce\API-Ecommerce\API-Ecommerce\obj\Debug\net9.0\API-Ecommerce.sourcelink.json
