@@ -55,47 +55,26 @@ namespace API_ECommerce.Repositories
         /// </summary>
         /// <returns>Um cliente ou null</returns>
 
-        public ListarClienteViewModel? BuscarPorEmailSenha(string email, string senha)
+        public Cliente? BuscarPorEmailSenha(string email, string senha)
         {
-            var cliente = _context.Clientes
-                                  .Where(c => c.Email == email && c.Senha == senha)
-                                  .FirstOrDefault();
+            var clienteEncontrado = _context.Clientes.FirstOrDefault(c => c.Email == email);
 
-            if (cliente == null)
-            {
+            //caso nao encontre, retorna nulo
+            if (clienteEncontrado == null)
                 return null;
-            }
 
-            return new ListarClienteViewModel
-            {
-                IdCliente = cliente.IdCliente,
-                NomeCompleto = cliente.NomeCompleto,
-                Email = cliente.Email,
-                Telefone = cliente.Telefone,
-                Endereco = cliente.Endereco,
-                DataCadastro = cliente.DataCadastro
-            };
+            var passwordService = new PasswordService();
+            //verificar se a Senha do usuario gera o mesmo hash
+            var resultado = passwordService.VerificarSenha(clienteEncontrado, senha);
+            if (resultado == true) return clienteEncontrado;
+            return null;
+
         }
-
-        public Cliente? BuscarPorId(int id)
-        {
-            return _context.Clientes.FirstOrDefault(c => c.IdCliente == id);
-        }
-
-
-
-
-
-
-
-
-
-
 
 
         public void Atualizar(int id, CadastrarClienteDto clienteDto)
         {
-            var passwordService = new PasswordService(); 
+            var passwordService = new PasswordService();
             var clienteEncontrado = _context.Clientes.Find(id);
 
             if (clienteEncontrado == null)
@@ -153,15 +132,11 @@ namespace API_ECommerce.Repositories
             _context.SaveChanges();
         }
 
-
-        ListarClienteViewModel? IClienteRepository.BuscarPorEmailSenha(string email, string senha)
+        public Cliente BuscarPorId(int id)
         {
             throw new NotImplementedException();
         }
 
-        List<ListarClienteViewModel> IClienteRepository.BuscarClientePorNome(string nome)
-        {
-            throw new NotImplementedException();
-        }
+
     }
 }

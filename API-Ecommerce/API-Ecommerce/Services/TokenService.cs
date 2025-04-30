@@ -1,6 +1,7 @@
 ﻿using System.Security.Claims;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace API_Ecommerce.Services
 {
@@ -16,8 +17,23 @@ namespace API_Ecommerce.Services
         };
 
             // Criação da chave secreta utilizada para assinar o token
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("minha-chave-secreta-mega-ultra-segura-senai"));
+            var chave = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("minha-chave-secreta-mega-master-ultra-segura-senai"));
 
 
+            // Definição das credenciais de assinatura usando o algoritmo HmacSha256 (keyed-hash message authentication code)
+            var creds = new SigningCredentials(chave, SecurityAlgorithms.HmacSha256);
+
+            // Criação do token JWT com emissor, audiência, claims e tempo de expiração
+            var token = new JwtSecurityToken(
+                issuer: "Ecommerce",
+                audience: "Ecommerce",
+                claims: claims,
+                expires: DateTime.Now.AddMinutes(30),  //timeout de token - 30 min
+                signingCredentials: creds
+            );
+
+            // Retorna o token em formato string
+            return new JwtSecurityTokenHandler().WriteToken(token);
         }
     }
+}

@@ -32,10 +32,10 @@ namespace API_Ecommerce.Interfaces
         //Recebe um Id e deleta o cliente correspondente
         void Deletar(int id);
 
-        ListarClienteViewModel? BuscarPorEmailSenha(string email, string senha);
+        Cliente? BuscarPorEmailSenha(string email, string senha);
 
         //Buscar cliente por nome
-        List<ListarClienteViewModel> BuscarClientePorNome(string nome);
+        List<Cliente> BuscarClientePorNome(string nome);
     }
 
 
